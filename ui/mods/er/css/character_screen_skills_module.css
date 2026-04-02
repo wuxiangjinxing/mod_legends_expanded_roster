@@ -1,0 +1,14 @@
+.character-screen-container .skills-module
+{
+	width: 97.5%;
+	height: 17.7rem;
+    position: relative;
+    /*height: 12.5%;*/  /* AUTO HEIGHT */
+
+	overflow: auto;
+	outline: hidden;
+
+    /*border-bottom: 1px rgba(130, 130, 130, 1) solid;*/
+
+	margin-left: 1.0rem;
+}

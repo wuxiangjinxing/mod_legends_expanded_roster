@@ -1,0 +1,46 @@
+.character-screen .character-screen-container
+{
+	/*left: -1.0rem;
+	right: 0;
+	top: 0;
+	bottom: -0.5rem;*/
+
+	left: 20.9rem;
+	top: 12.5rem;
+	right: 17.6rem;
+
+	width: 103.9rem;
+	height: 78.2rem;
+
+	position: absolute;
+
+   /* z-index: 2;*/
+	/*margin: auto;*/
+
+    /*background-image: url("coui://gfx/ui/skin/background_inventory.png");
+    background-repeat: no-repeat;*/
+}
+
+.character-screen .character-screen-statuetes
+{
+    width: 142.1rem;
+	height: 99.6rem;
+
+	/*left: -22.0rem;
+	right: 21.5rem;
+	top: -11.9rem;
+	bottom: -0.5rem;*/
+
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+
+	position: absolute;
+    z-index: 2;
+	margin: auto;
+
+    background-image: url("coui://gfx/ui/skin/background_inventory_expanded_skills.png");
+    background-size: 142.1rem 99.6rem;
+    background-repeat: no-repeat;
+}
