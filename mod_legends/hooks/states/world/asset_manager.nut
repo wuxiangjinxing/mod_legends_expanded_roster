@@ -148,7 +148,7 @@
 			if (item == null)
 				continue;
 
-			if (!item.isItemType(::Const.Items.ItemType.Net) || !item.isItemType(::Const.Items.ItemType.Ammo) || !item.hasAmmo() || item.getAmmo() >= item.getAmmoMax())
+			if (!item.isItemType(::Const.Items.ItemType.Net) || !item.isItemType(::Const.Items.ItemType.Ammo) || item.getAmmo() >= item.getAmmoMax())
 				continue;
 
 			local ammoCost = item.getAmmoCost();
