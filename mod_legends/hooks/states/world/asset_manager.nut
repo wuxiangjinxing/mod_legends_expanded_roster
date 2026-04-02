@@ -109,14 +109,33 @@
 		this.refillAmmo();
 	}
 
-	local refillAmmo = o.refillAmmo;
 	o.refillAmmo = function()
 	{
 		if (m.Ammo == 0)
 			return;
 
+		local roster = this.World.getPlayerRoster().getAll();
+
+		foreach( bro in roster ) {
+			local items = bro.getItems().getAllItems();
+			foreach( item in items ) {
+				if ((item.isItemType(this.Const.Items.ItemType.Ammo) || "getAmmoMax" in item) && (item.getAmmo() < item.getAmmoMax())) {
+					local a = this.Math.min(this.m.Ammo, this.Math.ceil(item.getAmmoMax() - item.getAmmo()) * item.getAmmoCost());
+
+					if (this.m.Ammo >= a) {
+						item.setAmmo(item.getAmmo() + this.Math.ceil(a / item.getAmmoCost()));
+						this.m.Ammo -= a;
+					}
+				}
+
+				if (this.m.Ammo == 0) {
+					break;
+				}
+			}
+		}
+
 		local repairNet = false;
-		foreach( bro in ::World.getPlayerRoster().getAll() )
+		foreach( bro in roster )
 		{
 			if (bro.getFlags().get("LegendsCanRepairNet")) {
 				::World.Statistics.getFlags().set("LegendsCanRepairNet", true);
@@ -129,7 +148,7 @@
 			if (item == null)
 				continue;
 
-			if (!item.isItemType(::Const.Items.ItemType.Net) || !item.isItemType(::Const.Items.ItemType.Ammo) || item.getAmmo() >= item.getAmmoMax())
+			if (!item.isItemType(::Const.Items.ItemType.Net) || !item.isItemType(::Const.Items.ItemType.Ammo) || !item.hasAmmo() || item.getAmmo() >= item.getAmmoMax())
 				continue;
 
 			local ammoCost = item.getAmmoCost();
@@ -149,7 +168,9 @@
 				break;
 		}
 
-		refillAmmo();
+		if (this.World.State.getCurrentTown() != null) {
+			this.World.State.getTownScreen().updateAssets();
+		}
 	}
 
 	o.setArmorParts = function( _f )
