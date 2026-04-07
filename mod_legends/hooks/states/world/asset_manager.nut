@@ -119,7 +119,7 @@
 		foreach( bro in roster ) {
 			local items = bro.getItems().getAllItems();
 			foreach( item in items ) {
-				if ((item.isItemType(this.Const.Items.ItemType.Ammo) || "getAmmoMax" in item) && (item.getAmmo() < item.getAmmoMax())) {
+				if ((item.isItemType(this.Const.Items.ItemType.Ammo) || ("getAmmo" in item && "getAmmoMax" in item)) && (item.getAmmo() < item.getAmmoMax())) {
 					local a = this.Math.min(this.m.Ammo, this.Math.ceil(item.getAmmoMax() - item.getAmmo()) * item.getAmmoCost());
 
 					if (this.m.Ammo >= a) {
