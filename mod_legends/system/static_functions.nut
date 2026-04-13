@@ -289,16 +289,36 @@
 	local upgText = [];
 	local clothText = "\"cloth/" + split(_armor.getID(), ".")[2] + "\", " + _armor.getVariant();
 
-	if (upgrade[0] == null) { upgText.push("\"\""); }
-		else {upgText.push("\"chain/" + split(upgrade[0], ".")[2] + "\", " + _armor.getUpgradeVariant(0))}
-	if (upgrade[1] == null) { upgText.push("\"\""); }
-		else {upgText.push("\"plate/" + split(upgrade[1], ".")[2] + "\", " + _armor.getUpgradeVariant(1))}
-	if (upgrade[3] == null) { upgText.push("\"\""); }
-		else {upgText.push("\"cloak/" + split(upgrade[3], ".")[2] + "\", " + _armor.getUpgradeVariant(3))}
-	if (upgrade[2] == null) { upgText.push("\"\""); }
-		else {upgText.push("\"tabard/" + split(upgrade[2], ".")[2] + "\", " + _armor.getUpgradeVariant(2))}
-	if (upgrade[4] == null) { upgText.push("\"\""); }
-		else {upgText.push("\"armor_upgrades/" + split(upgrade[2], ".")[2] + "\", " + _armor.getUpgradeVariant(2))}
+	if (upgrade[0] == null) {
+		upgText.push("\"\"");
+	}
+	else {
+		upgText.push("\"chain/" + split(upgrade[0], ".")[2] + "\", " + _armor.getUpgradeVariant(0))
+	}
+	if (upgrade[1] == null) {
+		upgText.push("\"\"");
+	}
+	else {
+		upgText.push("\"plate/" + split(upgrade[1], ".")[2] + "\", " + _armor.getUpgradeVariant(1))
+	}
+	if (upgrade[3] == null) {
+		upgText.push("\"\"");
+	}
+	else {
+		upgText.push("\"cloak/" + split(upgrade[3], ".")[2] + "\", " + _armor.getUpgradeVariant(3))
+	}
+	if (upgrade[2] == null) {
+		upgText.push("\"\"");
+	}
+	else {
+		upgText.push("\"tabard/" + split(upgrade[2], ".")[2] + "\", " + _armor.getUpgradeVariant(2))
+	}
+	if (upgrade[4] == null) {
+		upgText.push("\"\"");
+	}
+	else {
+		upgText.push("\"armor_upgrades/" + split(upgrade[4], ".")[2] + "\", " + _armor.getUpgradeVariant(4))
+	}
 
 	local toPrint = "{"       +
 					"\n\tID = \"CHANGEME\"," +
