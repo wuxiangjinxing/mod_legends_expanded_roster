@@ -10,7 +10,7 @@
 ::ER.HookMod.require("mod_msu > 1.2.0", "mod_legends >= 19.3.0");
 ::ER.HookMod.conflictWith("mod_smartLoot");
 
-::ER.HookMod.queue(">mod_msu", ">mod_legends", ">mod_ROTUC", function() {
+::ER.HookMod.queue(">mod_msu", ">mod_legends", ">mod_ROTUC", ">mod_nggh_magic_concept", function() {
 	::ER.Mod <- ::MSU.Class.Mod(::ER.ID, ::ER.Version, ::ER.Name)
 	::include("mod_er/load.nut");
 	::Const.Roster.Size[10] = 36;
